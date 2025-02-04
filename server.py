@@ -4,7 +4,7 @@ from flask import request
 
 app = Flask("")
 
-@app.route("/", methods=["POST"])
+@app.route("/", methods=["POST", "GET"])
 def home():
     print("user connect to home")
     if request.method == "POST":
