@@ -11,11 +11,13 @@ def home():
         data = request.form
         print(data)
         print("post")
+        return "send !"
 
     if request.method == "GET":
         print("get")
+        return "coucou toi!"
 
-    return "Le plus beau des bot est en ligne ! genre vrmt le plus beau ! Regarde comment je suis beau et fort ! JE PING ET OUI JE PING DANS UN CHANNEL TRUC DE DINGUE !!!!!!!!"
+    return "nothing to show"
 
 def run_server():
     print("Im starting...")
