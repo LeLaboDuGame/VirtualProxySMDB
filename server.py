@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from threading import Thread
 from flask import request
 
@@ -15,6 +15,7 @@ def home():
 
     if request.method == "GET":
         print("get")
+        render_template("index.html")
         return "coucou toi!"
 
     return "nothing to show"
