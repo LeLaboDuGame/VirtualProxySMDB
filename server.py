@@ -15,8 +15,8 @@ def home():
 
     if request.method == "GET":
         print("get")
-        render_template("index.html")
-        return "coucou toi!"
+        return render_template("index.html")
+    
 
     return "nothing to show"
 
