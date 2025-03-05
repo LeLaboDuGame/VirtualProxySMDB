@@ -111,7 +111,6 @@ def start_server(server):
 
     # Start du thread en charge d'envoyer des msg
     send_thread = SendThreading(server, is_server=True)
-    send_thread.set_pseudo(None)
     send_thread.start()
 
     pseudos = []
