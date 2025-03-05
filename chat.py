@@ -156,7 +156,7 @@ class Storage:
 try:
     # CLIENT
     print("En recherche d'un serveur déjà existant...")
-    host, port = ('78.194.208.98', 25565)
+    host, port = ('https://virtualproxysmdb.onrender.com', 33)
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server.connect((host, port))
     print("Client connecté !")
