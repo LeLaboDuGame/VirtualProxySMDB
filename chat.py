@@ -105,7 +105,7 @@ class SendThreading(threading.Thread):
 
 # SERVER
 def start_server(server):
-    host, port = ('', )
+    host, port = ('', 33)
     server.bind((host, port))
     print("Le serveur est bien démarré !")
 
