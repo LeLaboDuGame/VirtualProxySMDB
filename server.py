@@ -8,10 +8,16 @@ socketio = SocketIO(app)
 socketio.run(app, allow_unsafe_werkzeug=True)
 
 
+
 @socketio.on('sendmsg')
 def handle_message(data):
     print('received message: ' + data)
 
+
+@socketio.on('onconnected')
+def handle_message(data):
+    print('received message: con ' + data)
+    
 @app.route("/", methods=["POST", "GET"])
 def home():
     print("user connect to home")
