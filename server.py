@@ -6,7 +6,7 @@ from flask_socketio import SocketIO
 
 def run_server():
     print("Im starting...")
-    app.run(host='0.0.0.0', port=8080)
+    app.run(host='0.0.0.0', port=80)
     print("Im online baby !")
 
 app = Flask("")
