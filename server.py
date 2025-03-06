@@ -4,6 +4,7 @@ from flask import request
 from flask_socketio import SocketIO
 
 app = Flask("")
+socketio = SocketIO(app)
 
 @app.route("/", methods=["POST", "GET"])
 def home():
@@ -25,13 +26,12 @@ def home():
 
 def run_server():
     print("Im starting...")
-    app.run(host='0.0.0.0', port=80)
+    socketio.run(app, allow_unsafe_werkzeug=True)
     print("Im online baby !")
 
 
-run_server()
-socketio = SocketIO(app)
-socketio.run(app, allow_unsafe_werkzeug=True)
+
+
 
 
 @socketio.on('sendmsg')
@@ -42,6 +42,7 @@ def handle_message(data):
 @socketio.on('onconnected')
 def handle_message(data):
     print('received message: con ' + data)
-    
+
+run_server()
 
 
