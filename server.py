@@ -5,7 +5,7 @@ from flask_socketio import SocketIO
 
 app = Flask("")
 socketio = SocketIO(app)
-socketio.run(app)
+socketio.run(app, allow_unsafe_werkzeug=True)
 
 
 @socketio.on('sendmsg')
