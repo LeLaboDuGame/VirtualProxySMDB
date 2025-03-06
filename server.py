@@ -3,9 +3,7 @@ from threading import Thread
 from flask import request
 from flask_socketio import SocketIO
 
-app = Flask("")
-socketio = SocketIO(app)
-socketio.run(app, allow_unsafe_werkzeug=True)
+
 
 
 
@@ -38,4 +36,9 @@ def run_server():
     print("Im starting...")
     app.run(host='0.0.0.0', port=8050)
     print("Im online baby !")
+
+app = Flask("")
 run_server()
+socketio = SocketIO(app)
+socketio.run(app, allow_unsafe_werkzeug=True)
+
