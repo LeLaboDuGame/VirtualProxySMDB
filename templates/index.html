@@ -21,13 +21,13 @@
     
     socket.on('connect', function() {
       alert("c")
-        socket.emit('onconnected ', {data: 'I\'m connected!'});
+        socket.emit('onconnected ', {msg: 'I\'m connected!'});
     });
 
   
     socket.on('updatemsg', function(data) {
       alert("rcv")
-      document.getElementById("chat").value += data.data
+      document.getElementById("chat").value ="ok"
     })
 </script>
 
