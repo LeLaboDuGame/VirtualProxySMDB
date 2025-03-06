@@ -6,6 +6,17 @@ from flask_socketio import SocketIO, send, emit
 app = Flask("")
 socketio = SocketIO(app)
 
+@socketio.on('sendmsg')
+def handle_message(data):
+    print('received message: ' + str(data))
+    emit("updatemsg", data, broadcast=True)
+
+
+@socketio.on('onconnected')
+def handle_message(data):
+    print('received message: con ' + str(data))
+
+
 @app.route("/", methods=["POST", "GET"])
 def home():
     print("user connect to home")
@@ -34,15 +45,6 @@ def run_server():
 
 
 
-@socketio.on('sendmsg')
-def handle_message(data):
-    print('received message: ' + str(data))
-    emit("updatemsg", data, broadcast=True)
-
-
-@socketio.on('onconnected')
-def handle_message(data):
-    print('received message: con ' + str(data))
 
 run_server()
 
