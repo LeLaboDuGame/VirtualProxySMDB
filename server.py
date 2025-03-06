@@ -1,8 +1,16 @@
 from flask import Flask, render_template
 from threading import Thread
 from flask import request
+from flask_socketio import SocketIO
 
 app = Flask("")
+socketio = SocketIO(app)
+socketio.run(app)
+
+
+@socketio.on('sendmsg')
+def handle_message(data):
+    print('received message: ' + data)
 
 @app.route("/", methods=["POST", "GET"])
 def home():
