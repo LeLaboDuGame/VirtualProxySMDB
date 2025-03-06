@@ -36,12 +36,13 @@ def run_server():
 
 @socketio.on('sendmsg')
 def handle_message(data):
-    print('received message: ' + data)
+    print('received message: ' + str(data))
+    emit("updatemsg", data, broadcast=True)
 
 
 @socketio.on('onconnected')
 def handle_message(data):
-    print('received message: con ' + data)
+    print('received message: con ' + str(data))
 
 run_server()
 
