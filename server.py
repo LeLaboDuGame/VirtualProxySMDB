@@ -26,7 +26,7 @@ def home():
 
 def run_server():
     print("Im starting...")
-    socketio.run(app, allow_unsafe_werkzeug=True)
+    socketio.run(app, allow_unsafe_werkzeug=True, host="0.0.0.0", port=80)
     print("Im online baby !")
 
 
