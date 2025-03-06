@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 from threading import Thread
 from flask import request
-from flask_socketio import SocketIO
+from flask_socketio import SocketIO, send, emit
 
 app = Flask("")
 socketio = SocketIO(app)
