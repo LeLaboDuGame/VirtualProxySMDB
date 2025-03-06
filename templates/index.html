@@ -23,6 +23,11 @@
       alert("c")
         socket.emit('onconnected ', {data: 'I\'m connected!'});
     });
+
+  
+    socket.on('updatemsg', function(data) {
+      document.getElementById("chat").value += data.data
+    })
 </script>
 
 </body>
