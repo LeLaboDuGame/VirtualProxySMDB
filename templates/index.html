@@ -26,9 +26,10 @@
 
   
     socket.on('updatemsg', function(data) {
-      alert("rcv")
       document.getElementById("chat").value ="ok"
-    })
+      alert("rcv "+ data.msg)
+      
+    });
 </script>
 
 </body>
