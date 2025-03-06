@@ -20,6 +20,7 @@
   };
     
     socket.on('connect', function() {
+      alert("c")
         socket.emit('onconnected ', {data: 'I\'m connected!'});
     });
 </script>
