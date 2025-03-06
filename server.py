@@ -36,6 +36,6 @@ def home():
 
 def run_server():
     print("Im starting...")
-    app.run(host='0.0.0.0', port=8080)
+    app.run(host='0.0.0.0', port=80)
     print("Im online baby !")
 run_server()
