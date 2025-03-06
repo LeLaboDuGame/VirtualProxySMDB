@@ -3,6 +3,8 @@ from threading import Thread
 from flask import request
 from flask_socketio import SocketIO
 
+app = Flask("")
+
 @app.route("/", methods=["POST", "GET"])
 def home():
     print("user connect to home")
@@ -26,7 +28,7 @@ def run_server():
     app.run(host='0.0.0.0', port=80)
     print("Im online baby !")
 
-app = Flask("")
+
 run_server()
 socketio = SocketIO(app)
 socketio.run(app, allow_unsafe_werkzeug=True)
