@@ -6,10 +6,12 @@ from flask_socketio import SocketIO, send, emit
 app = Flask("")
 socketio = SocketIO(app)
 
+
 @socketio.on('sendmsg')
 def handle_message(data):
     print('received message: ' + str(data))
-    emit("updatemsgs", data, broadcast=True)
+    print("test")
+    emit("updatemsg", data, broadcast=True)
 
 
 @socketio.on('onconnected')
