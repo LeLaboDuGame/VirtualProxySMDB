@@ -15,7 +15,7 @@
 <script type="text/javascript" charset="utf-8">
   var socket = io("https://" + document.domain);
   document.getElementById("sender").onclick = function () {
-    var msg = document.getElementById("msg").value;
+    var msg = document.getElementById("msg").value + "\n";
     socket.emit("sendmsg", {data: msg});
   };
     
