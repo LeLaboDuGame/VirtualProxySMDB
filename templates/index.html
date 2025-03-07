@@ -16,7 +16,7 @@
   var socket = io("https://" + document.domain);
   document.getElementById("sender").onclick = function () {
     var msg = document.getElementById("msg").value;
-    socket.emit("sendmsg", {data: msg});
+    socket.emit("sendmsg", {msg: msg});
   };
     
     socket.on('connect', function() {
