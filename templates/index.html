@@ -24,10 +24,16 @@
         socket.emit('onconnected ', {msg: 'I\'m connected!'});
     });
 
+
+  socket.on('updatechat', function(data) {
+      document.getElementById("chat").innerHTML +=data.msg + "\n"
+      
+      
+    });
   
     socket.on('updatemsg', function(data) {
       document.getElementById("chat").innerHTML +=data.msg + "\n"
-      alert("rcv "+ data.msg)
+    
       
     });
 </script>
