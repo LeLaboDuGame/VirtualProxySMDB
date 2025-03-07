@@ -26,7 +26,7 @@
 
   
     socket.on('updatemsg', function(data) {
-      document.getElementById("chat").innerHTML =data.msg
+      document.getElementById("chat").innerHTML +=data.msg
       alert("rcv "+ data.msg)
       
     });
