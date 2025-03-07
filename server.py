@@ -9,7 +9,7 @@ socketio = SocketIO(app)
 @socketio.on('sendmsg')
 def handle_message(data):
     print('received message: ' + str(data))
-    emit("updatemsg", data, broadcast=True)
+    emit("updatemsgs", data, broadcast=True)
 
 
 @socketio.on('onconnected')
