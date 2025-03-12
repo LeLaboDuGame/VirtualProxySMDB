@@ -8,7 +8,6 @@ app = Flask("")
 socketio = SocketIO(app)
 users = {}
 path="./save.json"
-global r
 r=0
 
 @socketio.on('sendmsg')
@@ -42,12 +41,13 @@ def home():
 
 @socketio.on('earn')
 def handle_message(data):
+    global r
     if data["user"] not in users:
         users[data["user"]] = [1,1]
     else:
         users[data["user"]][0] += users[data["user"]][1]
     emit("updatepnt", {"pnt": users[data["user"]][0]})
-    lb = [f"{list(users.keys())[u]} : {users[list(users.keys())[u]][0]} \n" for u in range(len(dict(sorted(users.items(), key=lambda item: item[1]))))]
+    lb = [f"{list(users.keys())[u]} : {users[list(users.keys())[u]][0]}" for u in range(len(dict(sorted(users.items(), key=lambda item: item[1]))))]
     emit("leaderboard", {"lb": str(lb).replace(",","\n")}, broadcast=True)
     r+=1
     if r == 10:
