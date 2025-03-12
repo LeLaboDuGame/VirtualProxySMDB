@@ -8,7 +8,8 @@ app = Flask("")
 socketio = SocketIO(app)
 users = {}
 path="./save.json"
-i = 0
+global i
+i=0
 
 @socketio.on('sendmsg')
 def handle_message(data):
