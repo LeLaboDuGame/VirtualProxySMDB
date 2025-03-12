@@ -38,7 +38,7 @@ def home():
 
 @socketio.on('earn')
 def handle_message(data):
-    emit("updatepnt", {"pnt": users[data.user]}
+    emit("updatepnt", {"pnt": users[data.user]})
     lb = dict(sorted(users.items(), key=lambda item: item[1]))
     emit("leaderboard", {"lb": str(lb).replace(",","\n")}, broadcast=True)
 
