@@ -12,7 +12,8 @@ Username:
 <p>nombre de pnt:</p><p id="pnt"></p><br>
 <input type="submit" id="sender" style="size: 200%;">
 <p>Earn per rep: </p><p id="mul">1</p>
-
+<br>Buy an update:
+<input type="submit" id="buy" style="size: 200%;">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
 <script type="text/javascript" charset="utf-8">
   var socket = io("https://" + document.domain);
@@ -20,6 +21,12 @@ Username:
     var user = document.getElementById("user").value
   
     socket.emit("earn", {user: user});
+  };
+
+  document.getElementById("buy").onclick = function () {
+    var user = document.getElementById("user").value
+  
+    socket.emit("buy", {user: user});
   };
     
     socket.on('connect', function() {
