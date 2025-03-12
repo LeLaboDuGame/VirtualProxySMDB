@@ -4,7 +4,8 @@
 <title>Chat</title>
 </head>
 <body>
-<p id="leaderboard"></p>
+Leaderboard:<br>
+  <p id="leaderboard"></p>
 <h1>Click bg:</h1>
 Username:
 <input id="user">
@@ -25,7 +26,7 @@ Username:
     
         socket.emit('onconnected ', {msg: 'I\'m connected!'});
     });
-    socket.on('leaderboard', function() {
+    socket.on('leaderboard', function(data) {
       document.getElementById("leaderboard").innerHTML =data.lb
     });
 
