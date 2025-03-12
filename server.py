@@ -43,7 +43,7 @@ def handle_message(data):
     emit("leaderboard", {"lb": str(lb).replace(",","\n")}, broadcast=True)
 
 @app.route("/clicker", methods=["POST", "GET"])
-def home():
+def clicker():
     print("user connect to home")
     if request.method == "GET":
         print("get")
