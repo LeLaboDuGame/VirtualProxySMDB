@@ -63,9 +63,9 @@ def handle_message(data):
     if data["user"] not in users:
         users[data["user"]] = [1,1]
     u = users[data["user"]]
-    if u[0] >= u[1] * 2:
+    if u[0] >= 2**u[1] :
         u[0] -= u[1] * 2
-        u[1] += u[1]
+        u[1] += 1
     users[data["user"]] = u
     emit("updateearn", {"mul": users[data["user"]][1]})
     emit("updatepnt", {"pnt": users[data["user"]][0]})
