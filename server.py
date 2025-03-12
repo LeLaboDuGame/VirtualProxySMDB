@@ -47,7 +47,7 @@ def handle_message(data):
     else:
         users[data["user"]][0] += users[data["user"]][1]
     emit("updatepnt", {"pnt": users[data["user"]][0]})
-    lb = [users.keys()[u] + ":" + users[users.keys()[u]][0] for u in range(len(dict(sorted(users.items(), key=lambda item: item[1]))))]
+    lb = [list(users.keys())[u] + ":" + users[list(users.keys())[u]][0] for u in range(len(dict(sorted(users.items(), key=lambda item: item[1]))))]
     emit("leaderboard", {"lb": str(lb).replace(",","\n")}, broadcast=True)
     r+=1
     if r == 10:
