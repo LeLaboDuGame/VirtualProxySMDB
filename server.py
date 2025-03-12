@@ -8,8 +8,7 @@ app = Flask("")
 socketio = SocketIO(app)
 users = {}
 path="./save.json"
-global i
-i=0
+global r = 0
 
 @socketio.on('sendmsg')
 def handle_message(data):
@@ -49,8 +48,9 @@ def handle_message(data):
     emit("updatepnt", {"pnt": users[data["user"]][0]})
     lb = dict(sorted(users.items(), key=lambda item: item[1]))
     emit("leaderboard", {"lb": str(lb).replace(",","\n")}, broadcast=True)
-    i+=1
-    if i == 10:
+    r+=1
+    if r == 10:
+        r=0
         file = open(path, "w")
         file.write(json.dumps(users))
         file.close()
