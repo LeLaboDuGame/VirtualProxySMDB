@@ -38,11 +38,11 @@ def home():
 
 @socketio.on('earn')
 def handle_message(data):
-    if data.user not in users:
-        users[data.user] = 1
+    if data["user"] not in users:
+        users[data["user"]] = 1
     else:
-        user[data.user] += 1
-    emit("updatepnt", {"pnt": users[data.user]})
+        user[data["user"]] += 1
+    emit("updatepnt", {"pnt": users[data["user"]]})
     lb = dict(sorted(users.items(), key=lambda item: item[1]))
     emit("leaderboard", {"lb": str(lb).replace(",","\n")}, broadcast=True)
 
