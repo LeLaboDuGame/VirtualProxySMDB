@@ -44,7 +44,7 @@ def handle_message(data):
     if data["user"] not in users:
         users[data["user"]] = [1,1]
     else:
-        users[data["user"]][0] += users[data["users"]][1]
+        users[data["user"]][0] += users[data["user"]][1]
     emit("updatepnt", {"pnt": users[data["user"]][0]})
     lb = dict(sorted(users.items(), key=lambda item: item[1]))
     emit("leaderboard", {"lb": str(lb).replace(",","\n")}, broadcast=True)
