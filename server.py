@@ -51,7 +51,7 @@ def handle_message(data):
     for k in users.keys():
         pdict[k] = users[k][0]
     lb = dict(sorted(pdict.items(), key=lambda item: item[1]))
-    lb = {v: k for k, v in lb.iteritems()}
+    lb = {v: k for k, v in lb.items()}
     emit("leaderboard", {"lb": str(lb)}, broadcast=True)
     r+=1
     if r == 10:
