@@ -4,41 +4,37 @@
 <title>Chat</title>
 </head>
 <body>
-
-<h1>Bienvenue dans le chat yeyeye</h1>
+<p id="leaderboard"></p>
+<h1>Click bg:</h1>
 Username:
 <input id="user">
-<p>Chat:</p><br>
-<p id="chat"></p>
-<input id="msg">
-<input type="submit" id="sender">
+<p>nombre de pnt:</p><p id="pnt"></p><br>
+<input type="submit" id="sender" style="size: 200%;">
+<p>Earn per rep: </p><p id="mul">1</p>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
 <script type="text/javascript" charset="utf-8">
   var socket = io("https://" + document.domain);
   document.getElementById("sender").onclick = function () {
-    var msg = document.getElementById("msg").value;
     var user = document.getElementById("user").value
-    document.getElementById("msg").value =""
-    socket.emit("sendmsg", {msg: msg, user: user});
+  
+    socket.emit("earn", {user: user});
   };
     
     socket.on('connect', function() {
     
         socket.emit('onconnected ', {msg: 'I\'m connected!'});
     });
+    socket.on('leaderboard', function() {
+      document.getElementById("leaderboard").innerHTML =data.lb
+    });
 
-
-  socket.on('updatechat', function(data) {
-      document.getElementById("chat").innerHTML +=data.msg + "\n"
-      
-      
+  socket.on('updatepnt', function(data) {
+      document.getElementById("pnt").innerHTML =data.pnt
     });
   
-    socket.on('updatemsg', function(data) {
-      document.getElementById("chat").innerHTML +=data.user + ": " + data.msg + "<br>"
-    
-      
+    socket.on('updateearn', function(data) {
+      document.getElementById("mul").innerHTML = "Earn per rep: " + data.mul + "<br>"
     });
 </script>
 
